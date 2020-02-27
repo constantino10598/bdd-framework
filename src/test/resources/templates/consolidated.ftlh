@@ -114,7 +114,7 @@ ${refreshData}
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand"><img vertical-align="top" height="25" width="25" float="left" src="https://pbs.twimg.com/profile_images/466733389458833408/qhiR6S8N_400x400.jpeg" alt=""/>&nbsp;&nbsp;BT Heritage ${title}</div></a>
+          <a class="navbar-brand">Chorus Broadband ${title}</div></a>
        	  <ul class="nav navbar-nav navbar-right">
        	  	<!-- table of contents -->	
             <#if useTableOfContents>

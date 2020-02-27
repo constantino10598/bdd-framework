@@ -1,4 +1,4 @@
-package com.cucumber.util;
+package nz.chorus.test.util;
 
 import java.io.IOException;
 import java.io.InputStream;

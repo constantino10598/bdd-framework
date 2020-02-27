@@ -1,8 +1,8 @@
-package com.cucumber.services;
+package nz.chorus.test.services;
 
 import org.apache.log4j.Logger;
 
-import com.cucumber.util.ConfigUtil;
+import nz.chorus.test.util.ConfigUtil;
 
 public class TestService {
 	

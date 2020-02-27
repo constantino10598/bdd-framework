@@ -1,4 +1,4 @@
-package com.cucumber.steps;
+package nz.chorus.test.steps;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -6,29 +6,30 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import com.cucumber.pages.BasePage;
-import com.cucumber.util.ConfigUtil;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import nz.chorus.test.pages.BasePage;
+import nz.chorus.test.pages.ServiceMapPage;
+import nz.chorus.test.util.ConfigUtil;
 
-public class BasePageSteps  {
+public class BasePageSD  {
 	
 	static Scenario scenario;
-	BasePage page = new BasePage();
+	static BasePage page = new BasePage();
 	ConfigUtil config_util = new ConfigUtil();
 	String base_url = config_util.getConfigPropertyValues("base.url"); 
 	String testcase_id;
 	
-	private static final Logger LOGGER = Logger.getLogger(BasePageSteps.class);
+	private static final Logger LOGGER = Logger.getLogger(BasePageSD.class);
 	
     @Before
     public void setup(Scenario scenario) throws ConfigurationException{
     	
-    	BasePageSteps.scenario = scenario;    
+    	BasePageSD.scenario = scenario;    
     	testcase_id = this.getTestCaseId(scenario);
     }
     
@@ -37,7 +38,7 @@ public class BasePageSteps  {
     	return scenario;
     }
     
-    public BasePage getPage(){
+    public static BasePage getPage(){
 		
     	return page;
     }
@@ -45,10 +46,13 @@ public class BasePageSteps  {
     @Given("the user opens the \"([^\"]*)\" page$")
     public void openHomePage(String url) throws Exception {
     	
-    	page.open();
     	if ("home" == url) {
+    		page = new ServiceMapPage();
+    		page.open();
     		page.navigate(base_url);
     	}else {
+    		page = new ServiceMapPage();
+    		page.open();
     		page.navigate(base_url + url);
     	}
     }
@@ -75,9 +79,7 @@ public class BasePageSteps  {
     	}
     	
     	try {
-	    	if(page != null){
-	    		page.close();
-	    	}
+	    	page.close();
     	} catch (Exception e) {
 			LOGGER.error("ERROR: " + e.getMessage());
 		} 

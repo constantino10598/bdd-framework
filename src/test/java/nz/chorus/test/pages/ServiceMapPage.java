@@ -1,4 +1,4 @@
-package com.cucumber.pages;
+package nz.chorus.test.pages;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.openqa.selenium.By;
@@ -8,14 +8,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.cucumber.util.ConfigUtil;
+import nz.chorus.test.util.ConfigUtil;
 
-public class BroadbandMapPage extends BasePage {
+public class ServiceMapPage extends BasePage {
 
 	@FindBy(id="wivolo-search-input")
-	WebElement address_field;
+	WebElement search_field;
 	
-	@FindBy(id="location-details")
+	@FindBy(id="ui-id-1")
+	WebElement address_list;
+	
+	@FindBy(id="location-details-now")
 	WebElement service_list;
 	
 	ConfigUtil config_util = new ConfigUtil();
@@ -24,13 +27,17 @@ public class BroadbandMapPage extends BasePage {
    
     public void searchService(String address){
 		
-    	System.out.println("testing: " + address_field);
-    	this.setInputs(address_field, address);
+    	this.setInputs(search_field, address);
     }
     
     public WebElement getServiceList(){
     	
     	return service_list;
+    }
+    
+    public WebElement getAddressList(){
+    	
+    	return address_list;
     }
 
 }

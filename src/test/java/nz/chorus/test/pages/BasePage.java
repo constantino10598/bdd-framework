@@ -1,4 +1,4 @@
-package com.cucumber.pages;
+package nz.chorus.test.pages;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,13 +33,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.cucumber.util.ConfigUtil;
 import com.google.common.base.Splitter;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
 import cucumber.api.Scenario;
+import nz.chorus.test.util.ConfigUtil;
 
 public class BasePage {
 
@@ -62,7 +62,7 @@ public class BasePage {
 	}
 
 	public void navigate(String url) {
-
+		
 		driver.get(url);
 	}
 
@@ -77,12 +77,6 @@ public class BasePage {
 		WebElement input = driver.findElement(By.id(id));
 		input.clear();
 		input.sendKeys(text);
-	}
-
-	public void selectDropdownByValue(String dropdown_id, String value) {
-
-		Select dropdown = new Select(driver.findElement(By.id(dropdown_id)));
-		dropdown.selectByValue(value);
 	}
 	
 	public boolean isFieldDisplayed(WebElement webElement) {
@@ -116,36 +110,9 @@ public class BasePage {
 		return m.find();
 	}
 
-	public void clickButtonById(String id) {
-
-		WebElement button = driver.findElement(By.id(id));
-		button.click();
-	}
-
-	public void clickButtonByName(String name) {
-
-		WebElement button = driver.findElement(By.name(name));
-		button.click();
-	}
-
-	public void clickLinkById(String id) {
-
-		driver.findElement(By.id(id)).click();
-	}
-
-	public void clickLinkByAttribute(String type, String attribute, String value) {
-
-		driver.findElement(By.xpath("//" + type + "[contains(@" + attribute + ",'" + value + "')]")).click();
-	}
-
 	public void clickElementByName(String name) {
 
 		driver.findElement(By.name(name)).click();
-	}
-
-	public String getLinkText(String linkText) {
-
-		return driver.findElement(By.linkText(linkText)).getText();
 	}
 
 	public void highlightElements(String text) {

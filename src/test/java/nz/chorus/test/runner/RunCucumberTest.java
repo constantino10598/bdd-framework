@@ -1,4 +1,4 @@
-package com.cucumber.runner;
+package nz.chorus.test.runner;
 
 import org.junit.runner.RunWith;
 
@@ -31,8 +31,8 @@ import cucumber.api.CucumberOptions;
 		          "pretty:target/cucumber-pretty.txt",
 		          "usage:target/cucumber-usage.json", 
 		          "junit:target/cucumber-results.xml" },
-        features = "src/test/java/com/cucumber/features/service_check.feature",
-        glue = "com.cucumber.steps"
+        features = "src/test/java/nz/chorus/test/features/service_check.feature",
+        glue = "nz.chorus.test.steps"
 )
 public class RunCucumberTest extends ExtendedTestNGRunner {
 	
