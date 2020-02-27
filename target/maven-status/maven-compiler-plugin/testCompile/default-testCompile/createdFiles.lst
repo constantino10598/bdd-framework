@@ -1,7 +1,0 @@
-com\cucumber\runner\RunCucumberTest.class
-com\cucumber\steps\BroadbandMapPageSteps.class
-com\cucumber\services\TestService.class
-com\cucumber\util\ConfigUtil.class
-com\cucumber\pages\BroadbandMapPage.class
-com\cucumber\pages\BasePage.class
-com\cucumber\steps\BasePageSteps.class
