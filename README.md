@@ -79,3 +79,7 @@ Some test cases can take hours to run depending on its volume. To filter one tes
   ```
 	mvn test -Dcucumber.options="src/test[location of feature files]/[feature file name]:[line number]"  
   ```
+## Reports
+When the tests are finished and successfully built, it will generate a report located in target folder of your project directory. The report templates are editable and are located in src/test/resources/templates. Below is the screenshot of the consolidated reports
+
+![Screenshot](/screenshot.JPG?raw=true "Report Screenshot")
