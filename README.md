@@ -6,7 +6,7 @@ that includes sample feature specification for testing service availability.
 
 ## Requirements
 
-[Apache Maven](https://maven.apache.org/download.cgi) is required to install dependencies and run scripts via `mvn`.
+[Apache Maven](https://maven.apache.org/download.cgi) is required to install dependencies and run scripts via `mvn`. Visit this [link](https://mkyong.com/maven/how-to-install-maven-in-windows/) on how to install Maven on Windows.
 
 ## Available Commands
 
@@ -18,32 +18,44 @@ that includes sample feature specification for testing service availability.
 ## Writing Code
 
 After cloning the repo, run `mvn install` from your project directory. Then, you can start the tests locally
-by running `mvn clean test`.
+by running `mvn clean test`. After starting the test with `mvn test`, you can edit any files in the `src` folder with your Eclipse or other editors.
 
+## Project Structure
 
-After starting the test with `mvn test`, you can edit any files in the `src` folder.
-
-## Customizing Template
-
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+### Runner
+This is the main Cucumber runner and contains most of the configurations for the tests like report config, screenshot and step (glue code) locations, and test coverage tags.
 
   ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
+  retryCount = 3,
+        detailedReport = true,
+        detailedAggregatedReport = true,
+        overviewReport = true,
+        coverageReport = true,
+        jsonUsageReport = "target/cucumber-usage.json",
+        usageReport = true,
+        excludeCoverageTags = {"@flaky"},
+        includeCoverageTags = {"@passed"},
+        outputFolder = "target",
+        customTemplatesPath = "src/test/resources/templates",
+		screenShotLocation = "./screenshots/cucumber/",
+		screenShotSize = "1000px",
+		consolidatedReport = true,	
+		consolidatedReportConfig = 	"src/test/resources/consolidated/consolidated_batch.json"
   ```
 
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+### Features
+Cucumber feature files are test specification written in human readable language. But behind each step are Java glue codes that binds the test cases to the Java backend services that interacts with the system tested
 
-## Deploying Code
+### Features
+Steps are the glue codes that bind the steps in the Cucumber feature specification to the Java backend services. Note that Cucumber Eclipse plugin must be installed before editing in Eclipse
+
+### Pages
+Web page models that contains the element, and methods to be used
+
+### Util
+Contains tools and common methods used by the framework
+
+## Filtering Tests to Run
 After you run the `npm run build` command, your code will be built into a single bundle located at 
 `dist/bundle.min.js` along with any other assets you project depended. 
 
