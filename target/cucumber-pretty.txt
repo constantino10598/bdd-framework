@@ -1,0 +1,192 @@
+Feature: Broadband Service Check
+  This specification checks the various broadband services available from the user's location
+
+  Scenario Outline: <case_id>: As an Internet user, I want to know which Chorus services are available to me. [90m# src/test/java/com/cucumber/features/service_check.feature:4[0m
+    So that I can decide on the service I want to order.
+
+    [36mGiven [0m[36mthe user opens the "broadband-map" page[0m
+    [36mWhen [0m[36mthe user types his address "<address>"[0m
+    [36mThen [0m[36mverify the list of service is displayed[0m
+    [36mThen [0m[36mprint the list of service available[0m
+    [36mThen [0m[36mtake screenshot of the page[0m
+
+    Examples: 
+[31mFailure in after hook:[0m[31mBasePageSteps.close_browser()[0m
+[31mMessage: [0m[31mjava.lang.NullPointerException
+	at com.cucumber.pages.BasePage.takeScreenshot(BasePage.java:186)
+	at com.cucumber.steps.BasePageSteps.close_browser(BasePageSteps.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
+	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
+	at cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+	at com.github.mkolisnyk.cucumber.runner.ExtendedTestNGRunner.feature(ExtendedTestNGRunner.java:69)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+[0m
+      [31mjava.lang.NullPointerException
+      	at com.cucumber.pages.BasePage.takeScreenshot(BasePage.java:186)
+      	at com.cucumber.steps.BasePageSteps.close_browser(BasePageSteps.java:74)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+      	at java.lang.reflect.Method.invoke(Method.java:498)
+      	at cucumber.runtime.Utils$1.call(Utils.java:40)
+      	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+      	at cucumber.runtime.Utils.invoke(Utils.java:34)
+      	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+      	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
+      	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
+      	at cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)
+      	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)
+      	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+      	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+      	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+      	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+      	at com.github.mkolisnyk.cucumber.runner.ExtendedTestNGRunner.feature(ExtendedTestNGRunner.java:69)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+      	at java.lang.reflect.Method.invoke(Method.java:498)
+      	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+      	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+      	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+      	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+      	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+      	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+      	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+      	at org.testng.TestRunner.run(TestRunner.java:632)
+      	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+      	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+      	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+      	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+      	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+      	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+      	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+      	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+      	at org.testng.TestNG.run(TestNG.java:1064)
+      	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+      	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+      	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+      	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+      	at java.lang.reflect.Method.invoke(Method.java:498)
+      	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+      	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+      	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+      	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+      	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+      [0m
+
+  Scenario Outline: TC001: As an Internet user, I want to know which Chorus services are available to me. [90m# src/test/java/com/cucumber/features/service_check.feature:15[0m
+    So that I can decide on the service I want to order.
+
+    [31mGiven [0m[31mthe user opens the "[0m[31m[1mbroadband-map[0m[31m" page[0m                                                         [90m# BasePageSteps.openHomePage(String)[0m
+      [31morg.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 81
+      Build info: version: '3.7.0', revision: '2321c73', time: '2017-11-02T22:22:35.584Z'
+      System info: host: 'CPX-6FXNFMZVKVJ', ip: '10.0.105.112', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+      Driver info: driver.version: ChromeDriver
+      remote stacktrace: Backtrace:
+      	Ordinal0 [0x008F5D53+2448723]
+      	Ordinal0 [0x00828131+1605937]
+      	Ordinal0 [0x0071F879+522361]
+      	Ordinal0 [0x006B05F3+67059]
+      	Ordinal0 [0x006ACD92+52626]
+      	Ordinal0 [0x006CC127+180519]
+      	Ordinal0 [0x006CBF2D+180013]
+      	Ordinal0 [0x006C9E5B+171611]
+      	Ordinal0 [0x006B1DD8+73176]
+      	Ordinal0 [0x006B2E50+77392]
+      	Ordinal0 [0x006B2DE9+77289]
+      	Ordinal0 [0x0083D6A7+1693351]
+      	GetHandleVerifier [0x00993E16+522726]
+      	GetHandleVerifier [0x00993B54+522020]
+      	GetHandleVerifier [0x009A8F67+609079]
+      	GetHandleVerifier [0x00994686+524886]
+      	Ordinal0 [0x00835A8C+1661580]
+      	Ordinal0 [0x0083F00B+1699851]
+      	Ordinal0 [0x0083F173+1700211]
+      	Ordinal0 [0x00854FE5+1789925]
+      	BaseThreadInitThunk [0x74806359+25]
+      	RtlGetAppContainerNamedObjectPath [0x76F37B74+228]
+      	RtlGetAppContainerNamedObjectPath [0x76F37B44+180]
+      
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+      	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)
+      	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)
+      	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)
+      	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+      	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+      	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+      	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+      	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+      	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+      	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+      	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+      	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)
+      	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+      	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+      	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:219)
+      	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:142)
+      	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+      	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
+      	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+      	at com.cucumber.pages.BasePage.open(BasePage.java:53)
+      	at com.cucumber.steps.BasePageSteps.openHomePage(BasePageSteps.java:48)
+      	at ✽.Given the user opens the "broadband-map" page(src/test/java/com/cucumber/features/service_check.feature:7)
+      [0m
+    [36mWhen [0m[36mthe user types his address "[0m[36m[1m12/21 Waripori Street, Berhampore, Wellington[0m[36m"[0m                       [90m# BroadbandMapPageSteps.verifyAddress(String)[0m
+    [36mThen [0m[36mverify the list of service is displayed[0m                                                          [90m# BroadbandMapPageSteps.verifyServices(String)[0m
+    [36mThen [0m[36mprint the list of service available[0m                                                              [90m# BroadbandMapPageSteps.printServices()[0m
+    [36mThen [0m[36mtake screenshot of the page[0m                                                                      [90m# BasePageSteps.takePageScreenShot()[0m
