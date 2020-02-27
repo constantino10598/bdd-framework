@@ -41,14 +41,22 @@ import org.apache.commons.lang.StringUtils;
 import cucumber.api.Scenario;
 import nz.chorus.test.util.ConfigUtil;
 
+/**
+ * Base web page model
+ * @author ericson.d.ruiz
+ *
+ */
 public class BasePage {
 
 	WebDriver driver;
 
+	/**
+	 * Opens the internet browser from the driver
+	 */
 	public void open() {
 
 		ConfigUtil config_util = new ConfigUtil();
-		File driver_path = new File(config_util.getConfigPropertyValues("chrome.driver.path"));
+		File driver_path = new File(config_util.getConfigProperty("chrome.driver.path"));
 		System.setProperty("webdriver.chrome.driver", driver_path.getAbsolutePath());
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -56,22 +64,40 @@ public class BasePage {
 		PageFactory.initElements(driver, this);
 	}
 
+	/**
+	 * Retrieves the web driver
+	 * @return web driver object
+	 */
 	public WebDriver getDriver() {
 
 		return this.driver;
 	}
 
+	/**
+	 * Browses and navigates webpage 
+	 * @param url URL address of the webpage
+	 */
 	public void navigate(String url) {
 		
 		driver.get(url);
 	}
 
+	/**
+	 * Sets the value for a certain field
+	 * @param field input field name
+	 * @param text input field value
+	 */
 	public void setInputs(WebElement field, String text) {
 		
 		field.clear();
 		field.sendKeys(text);
 	}
 	
+	/**
+	 * Sets the value thru its element ID
+	 * @param id element id
+	 * @param text input value
+	 */
 	public void setInputById(String id, String text) {
 
 		WebElement input = driver.findElement(By.id(id));
@@ -79,42 +105,30 @@ public class BasePage {
 		input.sendKeys(text);
 	}
 	
-	public boolean isFieldDisplayed(WebElement webElement) {
-
-		return webElement.isDisplayed();
-	}
-
-	public boolean isFieldDisplayed(String id) {
-
-		try {
-			WebElement element = driver.findElement(By.id(id));
-			return element.isDisplayed();
-		} catch (Exception e) {
-			return false;
-		}
-
-	}
-
+	/**
+	 * Verifies if a certain text is displayed on page
+	 * @param text value to search
+	 * @return true if the text was found
+	 */
 	public boolean isTextDisplayed(String text) {
 
 		String bodyText = driver.findElement(By.tagName("body")).getText();
 		return bodyText.contains(text);
 	}
-
-	public boolean isExactTextDisplayed(String text) {
-
-		String bodyText = driver.findElement(By.tagName("body")).getText();
-		String pattern = "\\b" + text + "\\b";
-		Pattern p = Pattern.compile(pattern);
-		Matcher m = p.matcher(bodyText);
-		return m.find();
-	}
-
+	
+	/**
+	 * Clicks a certain element thru its name
+	 * @param name element's name
+	 */
 	public void clickElementByName(String name) {
 
 		driver.findElement(By.name(name)).click();
 	}
 
+	/**
+	 * Highlights the elements if it exists in the page
+	 * @param text text to search for
+	 */
 	public void highlightElements(String text) {
 
 		List<WebElement> elements = driver.findElements(By.xpath("//*[contains(text(), '" + text + "')]"));
@@ -124,6 +138,10 @@ public class BasePage {
 		}
 	}
 
+	/**
+	 * Highlights the exact text in the page
+	 * @param text exact text to search for
+	 */
 	public void highlightExactText(String text) {
 
 		List<WebElement> elements = driver.findElements(By.xpath("//*[text()='" + text + "']"));
@@ -133,14 +151,10 @@ public class BasePage {
 		}
 	}
 
-	public void highlightText(String text) {
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("var body = document.getElementsByTagName('body');"
-				+ "document.body.innerHTML = document.body.innerHTML.replace(arguments[0], '<span style=background-color:yellow; >"
-				+ text + "</span>');", text);
-	}
-
+	/**
+	 * Highlights the element's border if found
+	 * @param element element's name
+	 */
 	public void highlightElement(WebElement element) {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -148,12 +162,20 @@ public class BasePage {
 				element);
 	}
 
+	/**
+	 * Captures the screenshot of the page
+	 * @param scenario scenario ID
+	 * @param alt_id test case ID
+	 */
 	public void takeScreenshot(Scenario scenario, String alt_id) {
 
 		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.embed(screenshot, "image/png");
 	}
 
+	/**
+	 * Closes the browser
+	 */
 	public void close() {
 
 		driver.quit();

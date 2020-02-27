@@ -23,7 +23,7 @@ import nz.chorus.test.pages.ServiceMapPage;
 import nz.chorus.test.util.ConfigUtil;
 
 /**
- * Broadband page step definitions
+ * Service map page step definitions
  * @author ericson.d.ruiz
  *
  */
@@ -33,12 +33,21 @@ public class ServiceMapPageSD  {
 	ServiceMapPage page = (ServiceMapPage) BasePageSD.getPage();
 	private static final Logger LOGGER = Logger.getLogger(ServiceMapPageSD.class);
 	    
+	/**
+	 * Searches the address list
+	 * @param address customer's address
+	 */
     @When("the user types his address \"([^\"]*)\"$")
     public void verifyAddress(String address) {
         
     	page.searchService(address);
     }
     
+    /**
+     * Verifies if the address appears in the dropdown
+     * @param address customer's address
+     * @throws InterruptedException exception
+     */
     @Then("verify the address \"([^\"]*)\" displays in the list$")
     public void verifyAddressList(String address) throws InterruptedException {
         
@@ -47,6 +56,10 @@ public class ServiceMapPageSD  {
     	address_list.click();
     }
     
+    /**
+     * Verifies the list of available services in the address
+     * @throws InterruptedException exception
+     */
     @Then("verify the list of services is displayed")
     public void verifyServices() throws InterruptedException {
         
@@ -55,6 +68,9 @@ public class ServiceMapPageSD  {
     	page.highlightElement(service_list);
     }
     
+    /**
+     * Prints the list of services available
+     */
     @Then("print the list of services available")
     public void printServices() {
     	

@@ -16,16 +16,26 @@ import nz.chorus.test.pages.BasePage;
 import nz.chorus.test.pages.ServiceMapPage;
 import nz.chorus.test.util.ConfigUtil;
 
+/**
+ * Base web page step definitions
+ * @author ericson.d.ruiz
+ *
+ */
 public class BasePageSD  {
 	
 	static Scenario scenario;
 	static BasePage page = new BasePage();
 	ConfigUtil config_util = new ConfigUtil();
-	String base_url = config_util.getConfigPropertyValues("base.url"); 
+	String base_url = config_util.getConfigProperty("base.url"); 
 	String testcase_id;
 	
 	private static final Logger LOGGER = Logger.getLogger(BasePageSD.class);
 	
+	/**
+	 * Sets up the scenario before running
+	 * @param scenario scenario object
+	 * @throws ConfigurationException configuration exception
+	 */
     @Before
     public void setup(Scenario scenario) throws ConfigurationException{
     	
@@ -33,18 +43,30 @@ public class BasePageSD  {
     	testcase_id = this.getTestCaseId(scenario);
     }
     
+    /**
+     * Retrieves the scenario
+     * @return scenario object
+     */
     public static Scenario getScenario(){
     	
     	return scenario;
     }
     
+    /**
+     * Retrieves the base page
+     * @return page object
+     */
     public static BasePage getPage(){
 		
     	return page;
     }
     
+    /**
+     * Step for opening the base page
+     * @param url URL address
+     */
     @Given("the user opens the \"([^\"]*)\" page$")
-    public void openHomePage(String url) throws Exception {
+    public void openHomePage(String url) {
     	
     	if ("home" == url) {
     		page = new ServiceMapPage();
@@ -57,6 +79,11 @@ public class BasePageSD  {
     	}
     }
     
+    /**
+     * Step to verify if text is displayed
+     * @param text text to search for
+     * @throws InterruptedException
+     */
     @Then("verify the text \"([^\"]*)\" is displayed in page$")
     public void verifytextDisplayed(String text) throws InterruptedException {
         
@@ -64,6 +91,10 @@ public class BasePageSD  {
     	page.highlightElements(text);
     }
     
+    /**
+     * Step to take the screenshot of the page
+     * @throws InterruptedException exception
+     */
     @Then("take screenshot of the page")
     public void takePageScreenShot() throws InterruptedException{
     	
@@ -71,6 +102,9 @@ public class BasePageSD  {
     	page.takeScreenshot(scenario, testcase_id);
     } 
     
+    /**
+     * Closes the browser after the scenario is finished
+     */
     @After
     public void close_browser(){
     	
@@ -85,7 +119,12 @@ public class BasePageSD  {
 		} 
     }
     
- private String getTestCaseId(Scenario scenario) {
+    /**
+     * Gets the test case ID
+     * @param scenario scenario object
+     * @return test case ID
+     */
+    private String getTestCaseId(Scenario scenario) {
         
         String testCaseId = scenario.getName().split(":")[0];
         return testCaseId;

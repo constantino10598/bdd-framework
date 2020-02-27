@@ -8,11 +8,21 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.log4j.Logger;
 
+/**
+ * Configuration and other common utilities
+ * @author ericson.d.ruiz
+ *
+ */
 public class ConfigUtil {
 	
 	final Logger LOGGER = Logger.getLogger(ConfigUtil.class);
 	
-	public String getConfigPropertyValues(String propertyName) {
+	/**
+	 * Gets the value from the property file
+	 * @param propertyName property name
+	 * @return property value
+	 */
+	public String getConfigProperty(String propertyName) {
 		
     	String result = "";
     	String prop_file = "config.properties";
@@ -25,15 +35,7 @@ public class ConfigUtil {
 		} catch (IOException e) {
 			LOGGER.error(e);
 		}
-    	
 		return result;
-    }
-	
-	public String getConfigPropValue(String prop_file, String propertyName) throws ConfigurationException {
-		
-    	PropertiesConfiguration config = new PropertiesConfiguration(prop_file);
-        String value = config.getString(propertyName);    	
-        return value;
     }
 
 }

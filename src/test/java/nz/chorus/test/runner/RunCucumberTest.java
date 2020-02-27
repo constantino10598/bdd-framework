@@ -7,6 +7,11 @@ import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
 import com.github.mkolisnyk.cucumber.runner.ExtendedTestNGRunner;
 import cucumber.api.CucumberOptions;
 
+/**
+ * Main Cucumber test runner
+ * @author ericson.d.ruiz
+ *
+ */
 @RunWith(ExtendedCucumber.class)
 @ExtendedCucumberOptions(jsonReport = "target/cucumber.json",
         retryCount = 3,
