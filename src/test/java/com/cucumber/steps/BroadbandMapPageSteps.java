@@ -18,6 +18,11 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+/**
+ * Broadband page step definitions
+ * @author ericson.d.ruiz
+ *
+ */
 public class BroadbandMapPageSteps  {
 	
 	static Scenario scenario;
