@@ -1,8 +1,6 @@
 # BDD Test Framework
 
-A sample BDD Test Framework using [Cucumber](https://cucumber.io/) for Java and [Selenium](https://selenium.dev/)
-that includes sample feature specification for testing service availability.
-
+A sample BDD Test Framework using [Cucumber](https://cucumber.io/) and [Selenium](https://selenium.dev/) for Java specification that includes sample feature specification for testing service availability.
 
 ## Requirements
 
@@ -20,6 +18,9 @@ by running `mvn clean test`. After starting the test with `mvn test`, you can ed
 
 ## Editor
 Eclipse was used in editing the project, but you can choose any other IDE's you like. When using Eclipse, please make sure that Git, Maven, and Cucumber are installed in your Eclipse plugin.
+
+## Browser/Driver compatibility
+The project was tested on Google Chrome version 80.0.3987.122 and ChromeDriver version 80.0.3987.106. Install the chromedriver in the project's default location in c:\dev\driver or adjust the location defined in the config.properties
 
 ## Project Structure
 The project contains some of the packages below.
