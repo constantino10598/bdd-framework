@@ -64,6 +64,11 @@
     margin-bottom: 10px;
 }
 
+.navbar-default{
+	background-color: #ffffff !important;
+	border-color: #ac3aae !important;
+}
+
 .navbar .label {
     font-size: 20px;
 }
@@ -114,7 +119,7 @@ ${refreshData}
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand">Chorus Broadband ${title}</div></a>
+          <a class="navbar-brand"><img vertical-align="middle" style="padding-bottom:5px" height="30" width="auto" float="left" src="https://raw.githubusercontent.com/constantino10598/bdd-framework/master/images/logo.JPG" alt=""/>&nbsp;&nbsp; ${title}</div></a>
        	  <ul class="nav navbar-nav navbar-right">
        	  	<!-- table of contents -->	
             <#if useTableOfContents>
