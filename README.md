@@ -8,19 +8,21 @@ that includes sample feature specification for testing service availability.
 
 [Apache Maven](https://maven.apache.org/download.cgi) is required to install dependencies and run scripts via `mvn`. Visit this [link](https://mkyong.com/maven/how-to-install-maven-in-windows/) on how to install Maven on Windows.
 
-## Available Commands
+## Maven Commands
 
 | Command | Description |
 |---------|-------------|
 | `mvn install` | Install project dependencies |
 | `mvn clean test` | Build project and run the automated tests |
 
-## Writing Code
-
 After cloning the repo, run `mvn install` from your project directory. Then, you can start the tests locally
 by running `mvn clean test`. After starting the test with `mvn test`, you can edit any files in the `src` folder with your Eclipse or other editors.
 
+## Editor
+Eclipse was used in editing the project, but you can choose any other IDE's you like. When using Eclipse, please make sure that Git, Maven, and Cucumber are installed in your Eclipse plugin.
+
 ## Project Structure
+The project contains some of the packages below.
 
 ### Runner
 This is the main Cucumber runner and contains most of the configurations for the tests like report config, screenshot and step (glue code) locations, and test coverage tags.
